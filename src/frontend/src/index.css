@@ -1,0 +1,87 @@
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-weight: 200 700;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 13 8% 7%;
+    --foreground: 210 20% 92%;
+    --card: 213 14% 11%;
+    --card-foreground: 210 20% 92%;
+    --popover: 213 14% 11%;
+    --popover-foreground: 210 20% 92%;
+    --primary: 142 56% 49%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 214 15% 18%;
+    --secondary-foreground: 210 15% 65%;
+    --muted: 215 12% 20%;
+    --muted-foreground: 215 12% 56%;
+    --accent: 35 92% 57%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 4 75% 56%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 215 13% 22%;
+    --input: 215 13% 22%;
+    --ring: 142 56% 49%;
+    --radius: 0.625rem;
+    --sidebar-background: 213 16% 10%;
+    --sidebar-foreground: 215 12% 56%;
+    --sidebar-border: 215 13% 17%;
+    --sidebar-accent: 215 12% 18%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+.pulse-dot {
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+@keyframes bar-grow {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--bar-width);
+  }
+}
